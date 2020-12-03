@@ -1,0 +1,29 @@
+
+//Advent of Code 2020 Day 2 part 2
+import java.io.*;
+public class Main
+{
+	public static void main(String[] args) throws Exception{
+        int valid = 0;
+		String entry = null;
+		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+        while((entry=input.readLine())!=null){
+            //read line for 1st number and store as min
+            int hyphen = entry.indexOf('-');
+            int first = Integer.parseInt(entry.substring(0, hyphen));
+         //ignore hypen
+         //read line for 2nd number and store as max
+            int space = entry.indexOf(' ');
+            int second = Integer.parseInt(entry.substring(hyphen+1, space));
+         //read line for character
+            char required = entry.charAt(space+1);
+         //second space is space+3
+            //if required is in first location or second location, increment valid
+            if(required==entry.charAt(space+3+first)^required==entry.charAt(space+3+second)){
+                valid++;
+            }
+        }
+        System.out.println(506+valid);
+     }
+}
+
