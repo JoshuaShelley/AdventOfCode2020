@@ -1,0 +1,38 @@
+//Advent of Code 2020 Day 3 Part 2
+import java.io.*;
+public class Main
+{
+	public static void main(String[] args) throws Exception{
+        long treeSlope1 = 0;
+        long treeSlope2 = 0;
+        long treeSlope3 = 0;
+        long treeSlope4 = 0;
+        long treeSlope5 = 0;
+        int row = 0;
+		String entry = null;
+		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+        while((entry=input.readLine())!=null){
+            int length = entry.length();
+            //find character at position
+            //if tree, then add to tree
+            if(entry.charAt(row%length)=='#'){
+                treeSlope1++;
+            }
+            if(entry.charAt(row*3%length)=='#'){
+                treeSlope2++;
+            }
+            if(entry.charAt(row*5%length)=='#'){
+                treeSlope3++;
+            }
+            if(entry.charAt(row*7%length)=='#'){
+                treeSlope4++;
+            }
+            if(row%2==0 && entry.charAt(row/2%length)=='#'){
+                treeSlope5++;
+            }
+            row++;
+            //increment row
+        }
+        System.out.println(treeSlope5*treeSlope4*treeSlope3*treeSlope2*treeSlope1);
+     }
+}
