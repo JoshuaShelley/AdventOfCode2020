@@ -1,0 +1,22 @@
+//Advent of Code 2020 Day 3 Part 1
+import java.io.*;
+public class Main
+{
+	public static void main(String[] args) throws Exception{
+        int trees = 0;
+        int row = 0;
+		String entry = null;
+		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+        while((entry=input.readLine())!=null){
+            int position = 3*row;
+            //find character at position
+            //if tree, then add to tree
+            if(entry.charAt(position%entry.length())=='#'){
+                trees++;
+            }
+            row++;
+            //increment row
+        }
+        System.out.println(trees);
+     }
+}
