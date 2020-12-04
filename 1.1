@@ -1,0 +1,33 @@
+//Advent of Code 2020 Day 3 Part 2
+import java.io.*;
+import java.util.ArrayList;
+public class Main
+{
+	public static void main(String[] args) throws Exception{
+	    ArrayList<Integer> expenses = new ArrayList<Integer>();
+        int row = 0;
+		String entry = null;
+		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+        while((entry=input.readLine())!=null){
+            //add entry to list
+            expenses.add(Integer.parseInt(entry));
+        }
+        int i=0;
+        boolean found = false;
+        int j=0;
+        while(!found && i<expenses.size()) {
+            j = i +1;
+            System.out.println(expenses.get(i));
+            while(j<expenses.size() && !found){
+                if(expenses.get(i)+expenses.get(j)==2020){
+                    found = true;
+                }
+                else{
+                    j++;
+                }
+            }
+            i++;
+        }
+        System.out.println(expenses.get(i-1)*expenses.get(j));
+     }
+}
